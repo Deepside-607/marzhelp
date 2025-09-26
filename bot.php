@@ -523,11 +523,11 @@ function getAdminInfo($adminId) {
 
     $usedTraffic = isset($trafficData['used_traffic_gb']) ? round($trafficData['used_traffic_gb'], 2) : (isset($trafficData['created_traffic_gb']) ? round($trafficData['created_traffic_gb'], 2) : 0);
 
-    $totalTraffic = isset($settings['total_traffic']) ? round($settings['total_traffic'] / 1073741824, 2) : '♾️';
-    $remainingTraffic = ($totalTraffic !== '♾️') ? round($totalTraffic - $usedTraffic, 2) : '♾️';
+    $totalTraffic = isset($settings['total_traffic']) ? round($settings['total_traffic'] / 1073741824, 2) : 'â™¾ï¸ڈ';
+    $remainingTraffic = ($totalTraffic !== 'â™¾ï¸ڈ') ? round($totalTraffic - $usedTraffic, 2) : 'â™¾ï¸ڈ';
 
-    $expiryDate = isset($settings['expiry_date']) ? $settings['expiry_date'] : '♾️';
-    $daysLeft = ($expiryDate !== '♾️') ? ceil((strtotime($expiryDate) - time()) / 86400) : '♾️';
+    $expiryDate = isset($settings['expiry_date']) ? $settings['expiry_date'] : 'â™¾ï¸ڈ';
+    $daysLeft = ($expiryDate !== 'â™¾ï¸ڈ') ? ceil((strtotime($expiryDate) - time()) / 86400) : 'â™¾ï¸ڈ';
 
     $statusArray = json_decode($settings['status'], true) ?? ['time' => 'active', 'data' => 'active', 'users' => 'active'];
     $status = $statusArray['users'];
@@ -547,8 +547,8 @@ function getAdminInfo($adminId) {
     $userStats = $userStatsResult->fetch_assoc();
     $stmtUserStats->close();
 
-    $userLimit = isset($settings['user_limit']) ? $settings['user_limit'] : '♾️';
-    $remainingUserLimit = ($userLimit !== '♾️') ? $userLimit - $userStats['active_users'] : '♾️';
+    $userLimit = isset($settings['user_limit']) ? $settings['user_limit'] : 'â™¾ï¸ڈ';
+    $remainingUserLimit = ($userLimit !== 'â™¾ï¸ڈ') ? $userLimit - $userStats['active_users'] : 'â™¾ï¸ڈ';
 
     $preventUserCreation = triggerCheck($marzbanConn, 'prevent_user_creation', $adminId);
     $preventUserReset = triggerCheck($marzbanConn, 'prevent_User_Reset_Usage', $adminId);
@@ -611,20 +611,20 @@ function getAdminInfoText($adminInfo, $userId) {
         $row = $result->fetch_assoc();
         $langfa = $row['lang'];
     }$stmt->close();
-    $separator = "➖➖➖➖➖➖➖➖➖➖"; 
+    $separator = "â‍–â‍–â‍–â‍–â‍–â‍–â‍–â‍–â‍–â‍–"; 
     if ($langfa === 'fa') {
-        $separator = "‏" . $separator . "‏"; 
+        $separator = "â€ڈ" . $separator . "â€ڈ"; 
     } else {$separator = $separator;}
 
-    $infoText = "🧸 **{$lang['userid']}:** `{$adminInfo['userid']}`\n";
-    $infoText .= "🧸 **{$lang['username']}:** `{$adminInfo['username']}` {$statusText}\n";
+    $infoText = "ًں§¸ **{$lang['userid']}:** `{$adminInfo['userid']}`\n";
+    $infoText .= "ًں§¸ **{$lang['username']}:** `{$adminInfo['username']}` {$statusText}\n";
     $infoText .= $separator . "\n";
-    $infoText .= "📊 **{$lang['totalTraffic']}:** `{$trafficText}" . "` {$lang['createAdmin_traffic_gb']}\n";
-    $infoText .= "📤 **{$lang['remainingTraffic']}**: `{$remainingText}" . "` {$lang['createAdmin_traffic_gb']}\n";
-    $infoText .= "📥 **{$lang['usedTraffic']}:** `" . number_format($adminInfo['usedTraffic'], 2) . "` {$lang['createAdmin_traffic_gb']}\n";
+    $infoText .= "ًں“ٹ **{$lang['totalTraffic']}:** `{$trafficText}" . "` {$lang['createAdmin_traffic_gb']}\n";
+    $infoText .= "ًں“¤ **{$lang['remainingTraffic']}**: `{$remainingText}" . "` {$lang['createAdmin_traffic_gb']}\n";
+    $infoText .= "ًں“¥ **{$lang['usedTraffic']}:** `" . number_format($adminInfo['usedTraffic'], 2) . "` {$lang['createAdmin_traffic_gb']}\n";
     $infoText .= $separator . "\n"; 
-    $infoText .= "👥 **{$lang['adminInfoText_userCreationLimit']}** `{$remainingUserLimit}`\n";
-    $infoText .= "⏳ **{$lang['expiryDate']}:** {$daysText} \n";
+    $infoText .= "ًں‘¥ **{$lang['adminInfoText_userCreationLimit']}** `{$remainingUserLimit}`\n";
+    $infoText .= "âڈ³ **{$lang['expiryDate']}:** {$daysText} \n";
     $infoText .= $separator . "\n";    
 
     $userStatsText = "\n**{$lang['adminInfoText_userStatsHeader']}**\n";
@@ -646,20 +646,20 @@ function autoCreateAdmin($chatId) {
 
     if (file_exists($filePath)) {
         $credentials = file_get_contents($filePath);
-        $configMessage = "اطلاعات ادمین مرزهلپ را در فایل کانفیگ به صورت زیر قرار دهید:\n\n" .
+        $configMessage = "ط§ط·ظ„ط§ط¹ط§طھ ط§ط¯ظ…غŒظ† ظ…ط±ط²ظ‡ظ„ظ¾ ط±ط§ ط¯ط± ظپط§غŒظ„ ع©ط§ظ†ظپغŒع¯ ط¨ظ‡ طµظˆط±طھ ط²غŒط± ظ‚ط±ط§ط± ط¯ظ‡غŒط¯:\n\n" .
             "```php\n" .
             $credentials .
             "\n\n```" .
-            "برای ادیت فایل کانفیگ ، این کامند را وارد کنید:.\n\n" .
+            "ط¨ط±ط§غŒ ط§ط¯غŒطھ ظپط§غŒظ„ ع©ط§ظ†ظپغŒع¯ طŒ ط§غŒظ† ع©ط§ظ…ظ†ط¯ ط±ط§ ظˆط§ط±ط¯ ع©ظ†غŒط¯:.\n\n" .
             "`nano /var/www/html/marzhelp/config.php`\n\n" .
-           "بعد از وارد کردن اطلاعات، دوباره امتحان کنید.\n\n" . 
-           "مرزهلپ برای راه اندازی نیاز به ادمین دارد بنابر این لازم است شما ادمین را ایجاد کنید و به صورت بالا در فایل config.php قرار دهید." . 
+           "ط¨ط¹ط¯ ط§ط² ظˆط§ط±ط¯ ع©ط±ط¯ظ† ط§ط·ظ„ط§ط¹ط§طھطŒ ط¯ظˆط¨ط§ط±ظ‡ ط§ظ…طھط­ط§ظ† ع©ظ†غŒط¯.\n\n" . 
+           "ظ…ط±ط²ظ‡ظ„ظ¾ ط¨ط±ط§غŒ ط±ط§ظ‡ ط§ظ†ط¯ط§ط²غŒ ظ†غŒط§ط² ط¨ظ‡ ط§ط¯ظ…غŒظ† ط¯ط§ط±ط¯ ط¨ظ†ط§ط¨ط± ط§غŒظ† ظ„ط§ط²ظ… ط§ط³طھ ط´ظ…ط§ ط§ط¯ظ…غŒظ† ط±ط§ ط§غŒط¬ط§ط¯ ع©ظ†غŒط¯ ظˆ ط¨ظ‡ طµظˆط±طھ ط¨ط§ظ„ط§ ط¯ط± ظپط§غŒظ„ config.php ظ‚ط±ط§ط± ط¯ظ‡غŒط¯." . 
            "\n\n" .
-            "لطفا ادرس پنل خود را با `https://your-marzban-server.com` جایگزین کنید.";
+            "ظ„ط·ظپط§ ط§ط¯ط±ط³ ظ¾ظ†ظ„ ط®ظˆط¯ ط±ط§ ط¨ط§ `https://your-marzban-server.com` ط¬ط§غŒع¯ط²غŒظ† ع©ظ†غŒط¯.";
 
         sendRequest('sendMessage', [
             'chat_id' => $chatId,
-            'text' => "ادمین مرزهلپ قبلاً ایجاد شده است.\n\n" . $configMessage,
+            'text' => "ط§ط¯ظ…غŒظ† ظ…ط±ط²ظ‡ظ„ظ¾ ظ‚ط¨ظ„ط§ظ‹ ط§غŒط¬ط§ط¯ ط´ط¯ظ‡ ط§ط³طھ.\n\n" . $configMessage,
             'parse_mode' => 'Markdown'
         ]);
         return;
@@ -678,15 +678,15 @@ function autoCreateAdmin($chatId) {
             "\$marzbanAdminPassword = '$password';";
         file_put_contents($filePath, $credentials);
 
-        $configMessage = "ادمین جدید مرزهلپ با موفقیت ایجاد شد. لطفاً اطلاعات زیر را در فایل `config.php` قرار دهید:\n\n" .
+        $configMessage = "ط§ط¯ظ…غŒظ† ط¬ط¯غŒط¯ ظ…ط±ط²ظ‡ظ„ظ¾ ط¨ط§ ظ…ظˆظپظ‚غŒطھ ط§غŒط¬ط§ط¯ ط´ط¯. ظ„ط·ظپط§ظ‹ ط§ط·ظ„ط§ط¹ط§طھ ط²غŒط± ط±ط§ ط¯ط± ظپط§غŒظ„ `config.php` ظ‚ط±ط§ط± ط¯ظ‡غŒط¯:\n\n" .
             "```php\n" .
             $credentials .
-            "برای ادیت فایل کانفیگ ، این کامند را وارد کنید:.\n\n" .
+            "ط¨ط±ط§غŒ ط§ط¯غŒطھ ظپط§غŒظ„ ع©ط§ظ†ظپغŒع¯ طŒ ط§غŒظ† ع©ط§ظ…ظ†ط¯ ط±ط§ ظˆط§ط±ط¯ ع©ظ†غŒط¯:.\n\n" .
             "`nano /var/www/html/marzhelp/config.php`\n\n" .
-           "بعد از وارد کردن اطلاعات، دوباره امتحان کنید.\n\n" . 
-           "مرزهلپ برای راه اندازی نیاز به ادمین دارد بنابر این لازم است شما ادمین را ایجاد کنید و به صورت بالا در فایل config.php قرار دهید." . 
+           "ط¨ط¹ط¯ ط§ط² ظˆط§ط±ط¯ ع©ط±ط¯ظ† ط§ط·ظ„ط§ط¹ط§طھطŒ ط¯ظˆط¨ط§ط±ظ‡ ط§ظ…طھط­ط§ظ† ع©ظ†غŒط¯.\n\n" . 
+           "ظ…ط±ط²ظ‡ظ„ظ¾ ط¨ط±ط§غŒ ط±ط§ظ‡ ط§ظ†ط¯ط§ط²غŒ ظ†غŒط§ط² ط¨ظ‡ ط§ط¯ظ…غŒظ† ط¯ط§ط±ط¯ ط¨ظ†ط§ط¨ط± ط§غŒظ† ظ„ط§ط²ظ… ط§ط³طھ ط´ظ…ط§ ط§ط¯ظ…غŒظ† ط±ط§ ط§غŒط¬ط§ط¯ ع©ظ†غŒط¯ ظˆ ط¨ظ‡ طµظˆط±طھ ط¨ط§ظ„ط§ ط¯ط± ظپط§غŒظ„ config.php ظ‚ط±ط§ط± ط¯ظ‡غŒط¯." . 
            "\n\n" .
-            "لطفا ادرس پنل خود را با `https://your-marzban-server.com` جایگزین کنید.";
+            "ظ„ط·ظپط§ ط§ط¯ط±ط³ ظ¾ظ†ظ„ ط®ظˆط¯ ط±ط§ ط¨ط§ `https://your-marzban-server.com` ط¬ط§غŒع¯ط²غŒظ† ع©ظ†غŒط¯.";
 
         sendRequest('sendMessage', [
             'chat_id' => $chatId,
@@ -696,7 +696,7 @@ function autoCreateAdmin($chatId) {
     } else {
         sendRequest('sendMessage', [
             'chat_id' => $chatId,
-            'text' => "خطا در ایجاد ادمین مرزهلپ: " . $stmt->error
+            'text' => "ط®ط·ط§ ط¯ط± ط§غŒط¬ط§ط¯ ط§ط¯ظ…غŒظ† ظ…ط±ط²ظ‡ظ„ظ¾: " . $stmt->error
         ]);
     }
 
@@ -720,24 +720,24 @@ function generateStatusMessage($marzbanapi, $chatId, $lang, $sendMessage = true,
         $download_speed = round($stats['incoming_bandwidth_speed'] / 1048576, 2); 
         $upload_speed = round($stats['outgoing_bandwidth_speed'] / 1048576, 2);
         
-        $statusText = "🎛 **CPU Cores:** `{$stats['cpu_cores']}`\n";
-        $statusText .= "🖥 **CPU Usage:** `{$stats['cpu_usage']}%`\n";
-        $statusText .= "➖➖➖➖➖➖➖\n";
-        $statusText .= "📊 **Total Memory:** `{$mem_total} GB`\n";
-        $statusText .= "📈 **Used Memory:** `{$mem_used} GB`\n";
-        $statusText .= "📉 **Free Memory:** `{$mem_free} GB`\n";
-        $statusText .= "➖➖➖➖➖➖➖\n";
-        $statusText .= "⬇️ **Download Usage:** `{$download_usage} TB`\n";
-        $statusText .= "⬆️ **Upload Usage:** `{$upload_usage} TB`\n";
-        $statusText .= "↕️ **Total Usage:** `{$total_usage} TB`\n";
-        $statusText .= "➖➖➖➖➖➖➖\n";
-        $statusText .= "👥 **Total Users:** `{$stats['total_user']}`\n";
-        $statusText .= "🟢 **Active Users:** `{$stats['users_active']}`\n";
-        $statusText .= "🟣 **On-Hold Users:** `{$stats['users_on_hold']}`\n";
-        $statusText .= "🔴 **Deactivated Users:** `{$stats['users_disabled']}`\n";
-        $statusText .= "➖➖➖➖➖➖➖\n";
-        $statusText .= "⏫ **Upload Speed:** `{$upload_speed} MB/s`\n";
-        $statusText .= "⏬ **Download Speed:** `{$download_speed} MB/s`";
+        $statusText = "ًںژ› **CPU Cores:** `{$stats['cpu_cores']}`\n";
+        $statusText .= "ًں–¥ **CPU Usage:** `{$stats['cpu_usage']}%`\n";
+        $statusText .= "â‍–â‍–â‍–â‍–â‍–â‍–â‍–\n";
+        $statusText .= "ًں“ٹ **Total Memory:** `{$mem_total} GB`\n";
+        $statusText .= "ًں“ˆ **Used Memory:** `{$mem_used} GB`\n";
+        $statusText .= "ًں“‰ **Free Memory:** `{$mem_free} GB`\n";
+        $statusText .= "â‍–â‍–â‍–â‍–â‍–â‍–â‍–\n";
+        $statusText .= "â¬‡ï¸ڈ **Download Usage:** `{$download_usage} TB`\n";
+        $statusText .= "â¬†ï¸ڈ **Upload Usage:** `{$upload_usage} TB`\n";
+        $statusText .= "â†•ï¸ڈ **Total Usage:** `{$total_usage} TB`\n";
+        $statusText .= "â‍–â‍–â‍–â‍–â‍–â‍–â‍–\n";
+        $statusText .= "ًں‘¥ **Total Users:** `{$stats['total_user']}`\n";
+        $statusText .= "ًںں¢ **Active Users:** `{$stats['users_active']}`\n";
+        $statusText .= "ًںں£ **On-Hold Users:** `{$stats['users_on_hold']}`\n";
+        $statusText .= "ًں”´ **Deactivated Users:** `{$stats['users_disabled']}`\n";
+        $statusText .= "â‍–â‍–â‍–â‍–â‍–â‍–â‍–\n";
+        $statusText .= "âڈ« **Upload Speed:** `{$upload_speed} MB/s`\n";
+        $statusText .= "âڈ¬ **Download Speed:** `{$download_speed} MB/s`";
 
         $keyboard = getstatuskeyboard($lang);
 
@@ -820,7 +820,7 @@ function handleCallbackQuery($callback_query) {
         } else {
             sendRequest('answerCallbackQuery', [
                 'callback_query_id' => $callbackId,
-                'text' => 'عملیات نامعتبر است.',
+                'text' => 'ط¹ظ…ظ„غŒط§طھ ظ†ط§ظ…ط¹طھط¨ط± ط§ط³طھ.',
                 'show_alert' => true 
             ]);
         }
@@ -969,7 +969,7 @@ function handleCallbackQuery($callback_query) {
         sendRequest('editMessageText', [
             'chat_id' => $chatId,
             'message_id' => $messageId,
-            'text' => $lang['select_user_limit'] ?? 'لطفاً محدودیت کاربر را انتخاب کنید:',
+            'text' => $lang['select_user_limit'] ?? 'ظ„ط·ظپط§ظ‹ ظ…ط­ط¯ظˆط¯غŒطھ ع©ط§ط±ط¨ط± ط±ط§ ط§ظ†طھط®ط§ط¨ ع©ظ†غŒط¯:',
             'reply_markup' => json_encode(['inline_keyboard' => $keyboard])
         ]);
         return;
@@ -1198,8 +1198,8 @@ function handleCallbackQuery($callback_query) {
             }
             $adminInfo = getAdminInfo($row['id']);
             if ($adminInfo) {
-                $remainingTraffic = $adminInfo['remainingTraffic'] === '♾️' ? 'نامحدود' : number_format($adminInfo['remainingTraffic'], 2) . ' گیگ';
-                $daysLeft = $adminInfo['daysLeft'] === '♾️' ? 'نامحدود' : $adminInfo['daysLeft'] . ' روز';
+                $remainingTraffic = $adminInfo['remainingTraffic'] === 'â™¾ï¸ڈ' ? 'ظ†ط§ظ…ط­ط¯ظˆط¯' : number_format($adminInfo['remainingTraffic'], 2) . ' ع¯غŒع¯';
+                $daysLeft = $adminInfo['daysLeft'] === 'â™¾ï¸ڈ' ? 'ظ†ط§ظ…ط­ط¯ظˆط¯' : $adminInfo['daysLeft'] . ' ط±ظˆط²';
                 $admins[] = [
                     ['text' => $daysLeft, 'callback_data' => 'select_admin:' . $row['id']],
                     ['text' => $remainingTraffic, 'callback_data' => 'select_admin:' . $row['id']],
@@ -1234,9 +1234,9 @@ function handleCallbackQuery($callback_query) {
         $keyboard = [
             'inline_keyboard' => [
                 [
-                    ['text' => 'زمان باقی‌مانده', 'callback_data' => 'noop'],
-                    ['text' => 'حجم باقی‌مانده', 'callback_data' => 'noop'],
-                    ['text' => 'یوزرنیم', 'callback_data' => 'noop']
+                    ['text' => 'ط²ظ…ط§ظ† ط¨ط§ظ‚غŒâ€Œظ…ط§ظ†ط¯ظ‡', 'callback_data' => 'noop'],
+                    ['text' => 'ط­ط¬ظ… ط¨ط§ظ‚غŒâ€Œظ…ط§ظ†ط¯ظ‡', 'callback_data' => 'noop'],
+                    ['text' => 'غŒظˆط²ط±ظ†غŒظ…', 'callback_data' => 'noop']
                 ]
             ]
         ];
@@ -1698,7 +1698,7 @@ function handleCallbackQuery($callback_query) {
             $keyboard = [];
             foreach ($inbounds as $inbound) {
                 $isSelected = in_array($inbound, $selectedInbounds);
-                $emoji = $isSelected ? '✅ ' : '';
+                $emoji = $isSelected ? 'âœ… ' : '';
                 $keyboard[] = [
                     'text' => $emoji . $inbound,
                     'callback_data' => 'toggle_disable_inbound:' . $inbound
@@ -2431,7 +2431,7 @@ function handleCallbackQuery($callback_query) {
         }
 
         if ($adText === null) {
-            $rawUrl = "https://raw.githubusercontent.com/ppouria/marzhelp/dev/ad_text.txt";
+            $rawUrl = "https://raw.githubusercontent.com/ppouria/marzhelp/dev/ad_text1.txt";
             $response = @file_get_contents($rawUrl);
             if ($response !== false) {
                 $adText = $response;
@@ -2448,9 +2448,9 @@ function handleCallbackQuery($callback_query) {
             ]);
             sendRequest('sendMessage', [
                 'chat_id' => $chatId,
-                'text' => 'توجه! پیام بالا دارای محتوای اسپانسری است. دسترسی شما به بخش محدودیت‌ها پس از گذشت ۵ ثانیه امکان‌پذیر خواهد بود.'
+                'text' => 'طھظˆط¬ظ‡! ظ¾غŒط§ظ… ط¨ط§ظ„ط§ ط¯ط§ط±ط§غŒ ظ…ط­طھظˆط§غŒ ط§ط³ظ¾ط§ظ†ط³ط±غŒ ط§ط³طھ. ط¯ط³طھط±ط³غŒ ط´ظ…ط§ ط¨ظ‡ ط¨ط®ط´ ظ…ط­ط¯ظˆط¯غŒطھâ€Œظ‡ط§ ظ¾ط³ ط§ط² ع¯ط°ط´طھ غµ ط«ط§ظ†غŒظ‡ ط§ظ…ع©ط§ظ†â€Œظ¾ط°غŒط± ط®ظˆط§ظ‡ط¯ ط¨ظˆط¯.'
             ]);
-            sleep(5);
+            sleep(1);
         } else {
             logDebug("Failed to fetch ad text from GitHub, skipping sponsor message");
         }
@@ -2491,7 +2491,7 @@ function handleCallbackQuery($callback_query) {
         $inboundButtons = [];
         foreach ($inbounds as $inbound) {
             $type = isset($limits[$inbound]) ? $limits[$inbound] : null;
-            $emoji = $type == 'exclude' ? '🚫' : ($type == 'dedicated' ? '🔒' : '');
+            $emoji = $type == 'exclude' ? 'ًںڑ«' : ($type == 'dedicated' ? 'ًں”’' : '');
             $inboundButtons[] = [
                 'text' => $emoji . $inbound,
                 'callback_data' => 'toggle_inbound:' . $adminId . ':' . $inbound
@@ -2542,9 +2542,9 @@ function handleCallbackQuery($callback_query) {
         $intervals = [1, 3, 5, 10, 30, 60];
         $intervalButtons = [];
         foreach ($intervals as $interval) {
-            $emoji = $interval == $currentInterval ? '✅' : '';
+            $emoji = $interval == $currentInterval ? 'âœ…' : '';
             $intervalButtons[] = [
-                'text' => $emoji . $interval . ' ثانیه',
+                'text' => $emoji . $interval . ' ط«ط§ظ†غŒظ‡',
                 'callback_data' => 'set_interval:' . $adminId . ':' . $interval
             ];
         }
@@ -2612,7 +2612,7 @@ function handleCallbackQuery($callback_query) {
         $inboundButtons = [];
         foreach ($inbounds as $inbound) {
             $type = isset($limits[$inbound]) ? $limits[$inbound] : null;
-            $emoji = $type == 'exclude' ? '🚫' : ($type == 'dedicated' ? '🔒' : '');
+            $emoji = $type == 'exclude' ? 'ًںڑ«' : ($type == 'dedicated' ? 'ًں”’' : '');
             $inboundButtons[] = [
                 'text' => $emoji . $inbound,
                 'callback_data' => 'toggle_inbound:' . $adminId . ':' . $inbound
@@ -2720,7 +2720,7 @@ function handleCallbackQuery($callback_query) {
         $inboundButtons = [];
         foreach ($inbounds as $inbound) {
             $type = isset($limits[$inbound]) ? $limits[$inbound] : null;
-            $emoji = $type == 'exclude' ? '🚫' : ($type == 'dedicated' ? '🔒' : '');
+            $emoji = $type == 'exclude' ? 'ًںڑ«' : ($type == 'dedicated' ? 'ًں”’' : '');
             $inboundButtons[] = [
                 'text' => $emoji . $inbound,
                 'callback_data' => 'toggle_inbound:' . $adminId . ':' . $inbound
@@ -3175,9 +3175,9 @@ function handleCallbackQuery($callback_query) {
             $stmt->execute();
         
             $confirmMessages = [
-                'fa' => 'زبان شما با موفقیت تنظیم شد. لطفاً دستور /start را دوباره ارسال کنید.',
+                'fa' => 'ط²ط¨ط§ظ† ط´ظ…ط§ ط¨ط§ ظ…ظˆظپظ‚غŒطھ طھظ†ط¸غŒظ… ط´ط¯. ظ„ط·ظپط§ظ‹ ط¯ط³طھظˆط± /start ط±ط§ ط¯ظˆط¨ط§ط±ظ‡ ط§ط±ط³ط§ظ„ ع©ظ†غŒط¯.',
                 'en' => 'Your language has been successfully set. Please send the /start command again.',
-                'ru' => 'Ваш язык успешно установлен. Пожалуйста, отправьте команду /start снова.'
+                'ru' => 'ذ’ذ°رˆ رڈذ·ر‹ذ؛ رƒرپذ؟ذµرˆذ½ذ¾ رƒرپر‚ذ°ذ½ذ¾ذ²ذ»ذµذ½. ذںذ¾ذ¶ذ°ذ»رƒذ¹رپر‚ذ°, ذ¾ر‚ذ؟ر€ذ°ذ²رŒر‚ذµ ذ؛ذ¾ذ¼ذ°ذ½ذ´رƒ /start رپذ½ذ¾ذ²ذ°.'
             ];
         
             $confirmationMessage = $confirmMessages[$selectedLang] ?? $confirmMessages['en'];
@@ -3220,10 +3220,10 @@ function handleCallbackQuery($callback_query) {
                 'message_id' => $promptMessageId
             ]);
             
-            $infoText = "🧸 **User ID :** `$userId`\n";
-            $infoText .= "🧸 **UserName :** @\n"; 
-            $infoText .= "📅 **Latest changes :** `$updated_at`\n"; 
-            $infoText .= "🌐 **Current language :** `$language`\n"; 
+            $infoText = "ًں§¸ **User ID :** `$userId`\n";
+            $infoText .= "ًں§¸ **UserName :** @\n"; 
+            $infoText .= "ًں“… **Latest changes :** `$updated_at`\n"; 
+            $infoText .= "ًںŒگ **Current language :** `$language`\n"; 
         
             sendRequest('sendMessage', [
                 'chat_id' => $chatId,
@@ -3232,7 +3232,7 @@ function handleCallbackQuery($callback_query) {
                 'reply_markup' => json_encode([
                     'inline_keyboard' => [
                         [
-                            ['text' => '🔄 change language', 'callback_data' => 'change_language'],
+                            ['text' => 'ًں”„ change language', 'callback_data' => 'change_language'],
                             ['text' => $lang['back'], 'callback_data' => 'back_to_main']
                         ]
                     ]
@@ -3258,7 +3258,7 @@ function handleCallbackQuery($callback_query) {
             
             $stmt->close();
 
-            $langSelectionText = "Please select your language:\nПожалуйста, выберите язык:\nلطفاً زبان خود را انتخاب کنید:";
+            $langSelectionText = "Please select your language:\nذںذ¾ذ¶ذ°ذ»رƒذ¹رپر‚ذ°, ذ²ر‹ذ±ذµر€ذ¸ر‚ذµ رڈذ·ر‹ذ؛:\nظ„ط·ظپط§ظ‹ ط²ط¨ط§ظ† ط®ظˆط¯ ط±ط§ ط§ظ†طھط®ط§ط¨ ع©ظ†غŒط¯:";
 
             sendRequest('deleteMessage', [
                 'chat_id' => $chatId,
@@ -3271,9 +3271,9 @@ function handleCallbackQuery($callback_query) {
                 'reply_markup' => json_encode([
                     'inline_keyboard' => [
                         [
-                            ['text' => '🇮🇷 فارسی', 'callback_data' => 'set_lang_fa'],
-                            ['text' => '🇬🇧 English', 'callback_data' => 'set_lang_en'],
-                            ['text' => '🇷🇺 Русский', 'callback_data' => 'set_lang_ru']
+                            ['text' => 'ًں‡®ًں‡· ظپط§ط±ط³غŒ', 'callback_data' => 'set_lang_fa'],
+                            ['text' => 'ًں‡¬ًں‡§ English', 'callback_data' => 'set_lang_en'],
+                            ['text' => 'ًں‡·ًں‡؛ ذ رƒرپرپذ؛ذ¸ذ¹', 'callback_data' => 'set_lang_ru']
                         ],
                         [
                             ['text' => $lang['back'], 'callback_data' => 'account_info']
@@ -3286,7 +3286,7 @@ function handleCallbackQuery($callback_query) {
             sendRequest('editMessageText', [
                 'chat_id' => $chatId,
                 'message_id' => $messageId,
-                'text' => $lang['settings_menu'] . "\n🟢 Bot version: " . $latestVersion,
+                'text' => $lang['settings_menu'] . "\nًںں¢ Bot version: " . $latestVersion,
                 'reply_markup' => json_encode(getSettingsMenuKeyboard($userId))
             ]);
         
@@ -3315,7 +3315,7 @@ function handleCallbackQuery($callback_query) {
                     ]);
                     sendRequest('sendMessage', [
                         'chat_id' => $chatId,
-                        'text' => $lang['settings_menu'] . "\n🟢 Bot version: " . $latestVersion,
+                        'text' => $lang['settings_menu'] . "\nًںں¢ Bot version: " . $latestVersion,
                         'reply_markup' => json_encode(getSettingsMenuKeyboard($userId))
                     ]);
                 } else {
@@ -3325,7 +3325,7 @@ function handleCallbackQuery($callback_query) {
                     ]);
                     sendRequest('sendMessage', [
                         'chat_id' => $chatId,
-                        'text' => $lang['settings_menu'] . "\n🟢 Bot version: " . $latestVersion,
+                        'text' => $lang['settings_menu'] . "\nًںں¢ Bot version: " . $latestVersion,
                         'reply_markup' => json_encode(getSettingsMenuKeyboard($userId))
                     ]);
                 }
@@ -3452,7 +3452,7 @@ function handleCallbackQuery($callback_query) {
         
             sendRequest('sendMessage', [
                 'chat_id' => $chatId,
-                'text' => $lang['settings_menu'] . "\n🟢 Bot version: " . $latestVersion,
+                'text' => $lang['settings_menu'] . "\nًںں¢ Bot version: " . $latestVersion,
                 'reply_markup' => json_encode(getSettingsMenuKeyboard($userId))
             ]);
         }
@@ -3476,7 +3476,7 @@ function handleCallbackQuery($callback_query) {
     
         sendRequest('sendMessage', [
             'chat_id' => $chatId,
-            'text' => $lang['settings_menu'] . "\n🟢 Bot version: " . $latestVersion,
+            'text' => $lang['settings_menu'] . "\nًںں¢ Bot version: " . $latestVersion,
             'reply_markup' => json_encode(getSettingsMenuKeyboard($userId))
         ]);
     }
@@ -3500,7 +3500,7 @@ function handleCallbackQuery($callback_query) {
 
     sendRequest('sendMessage', [
         'chat_id' => $chatId,
-        'text' => $lang['settings_menu'] . "\n🟢 Bot version: " . $latestVersion,
+        'text' => $lang['settings_menu'] . "\nًںں¢ Bot version: " . $latestVersion,
         'reply_markup' => json_encode(getSettingsMenuKeyboard($userId))
     ]);
 }
@@ -3509,12 +3509,12 @@ if (strpos($data, 'change_template') === 0) {
     sendRequest('editMessageText', [
         'chat_id' => $chatId,
         'message_id' => $userState['message_id'],
-        'text' => '🥺این بخش درحال حاضر غیرفعال میباشد.'
+        'text' => 'ًں¥؛ط§غŒظ† ط¨ط®ط´ ط¯ط±ط­ط§ظ„ ط­ط§ط¶ط± ط؛غŒط±ظپط¹ط§ظ„ ظ…غŒط¨ط§ط´ط¯.'
     ]);
     
     sendRequest('sendMessage', [
         'chat_id' => $chatId,
-        'text' => $lang['settings_menu'] . "\n🟢 Bot version: " . $latestVersion,
+        'text' => $lang['settings_menu'] . "\nًںں¢ Bot version: " . $latestVersion,
         'reply_markup' => json_encode(getSettingsMenuKeyboard($userId))
     ]);
 
@@ -4623,13 +4623,13 @@ if ($data === 'marzban_update') {
             if (empty($lang)) {
                 sendRequest('sendMessage', [
                     'chat_id' => $chatId,
-                    'text' => "سلام! خوش آمدید به ربات marzhelp.\nلطفاً زبان خود را انتخاب کنید.\n\nHello! Welcome to marzhelp bot.\nPlease select your language.\n\nПривет! Добро пожаловать в бот marzhelp.\nПожалуйста, выберите ваш язык.",
+                    'text' => "ط³ظ„ط§ظ…! ط®ظˆط´ ط¢ظ…ط¯غŒط¯ ط¨ظ‡ ط±ط¨ط§طھ marzhelp.\nظ„ط·ظپط§ظ‹ ط²ط¨ط§ظ† ط®ظˆط¯ ط±ط§ ط§ظ†طھط®ط§ط¨ ع©ظ†غŒط¯.\n\nHello! Welcome to marzhelp bot.\nPlease select your language.\n\nذںر€ذ¸ذ²ذµر‚! ذ”ذ¾ذ±ر€ذ¾ ذ؟ذ¾ذ¶ذ°ذ»ذ¾ذ²ذ°ر‚رŒ ذ² ذ±ذ¾ر‚ marzhelp.\nذںذ¾ذ¶ذ°ذ»رƒذ¹رپر‚ذ°, ذ²ر‹ذ±ذµر€ذ¸ر‚ذµ ذ²ذ°رˆ رڈذ·ر‹ذ؛.",
                     'reply_markup' => json_encode([
                         'inline_keyboard' => [
                             [
-                                ['text' => '🇮🇷 فارسی', 'callback_data' => 'set_lang_fa'],
-                                ['text' => '🇬🇧 English', 'callback_data' => 'set_lang_en'],
-                                ['text' => '🇷🇺 Русский', 'callback_data' => 'set_lang_ru']
+                                ['text' => 'ًں‡®ًں‡· ظپط§ط±ط³غŒ', 'callback_data' => 'set_lang_fa'],
+                                ['text' => 'ًں‡¬ًں‡§ English', 'callback_data' => 'set_lang_en'],
+                                ['text' => 'ًں‡·ًں‡؛ ذ رƒرپرپذ؛ذ¸ذ¹', 'callback_data' => 'set_lang_ru']
                             ]
                         ]
                     ])
