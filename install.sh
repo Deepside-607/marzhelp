@@ -605,7 +605,7 @@ EOF
     fi
 
     echo "Cloning Marzhelp repository from GitHub..."
-    git clone https://github.com/ppouria/marzhelp.git /var/www/html/marzhelp
+    git clone https://github.com/aliamg1356/marzhelp.git /var/www/html/marzhelp
 
     # Define commands and permissions to apply
     commands=(
@@ -724,7 +724,7 @@ display_menu() {
     clear
     server_ip=$(curl -s http://checkip.amazonaws.com)  
     uptime_info=$(uptime -p)  
-    github_link="https://github.com/ppouria/marzhelp"  
+    github_link="https://github.com/aliamg1356/marzhelp"  
 
     echo -e "\033[1;36m=======MarzHelp=======\033[0m"
     echo -e "\033[1;32mServer IP: \033[1;37m$server_ip\033[0m"  
