@@ -41,15 +41,3 @@ Here is a screenshot of Marzhelp in action:
   <img src="https://github.com/ppouria/marzhelp/blob/main/screenshots/screenshot3.png" alt="Screenshot" width="300"/>
 </p>
 
-## Donations
-If you like Marzhelp and would like to support further development, consider making a donation:
-
-- **TRX (TRX):** `TGftLESDAeRncE7yMAHrTUCsixuUwPc6qp`
-- **Tether (USDT bep20):** `0x413eb47C430a3eb0E4262f267C1AE020E0C7F84D`
-- **Bitcoin:** `bc1qnmuuxraew34g806ewkepxrhgln4ult6z5vkj9l`
-- **ETH, BNB, MATIC network (ERC20, BEP20):** `0x413eb47C430a3eb0E4262f267C1AE020E0C7F84D`
-- **TON:** `UQDNpA3SlFMorlrCJJcqQjix93ijJfhAwIxnbTwZTLiHZ0Xa`
-
-## License
-
-Made in [Unknown!] and Published under [AGPL-3.0](./LICENSE).
