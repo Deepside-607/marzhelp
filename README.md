@@ -4,7 +4,7 @@
 
 **یک ربات مدیریت پایگاه داده برای Marzban**
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.2.9-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 Marzhelp یک ابزار جامع برای مدیریت ادمین‌های Marzban است که با استفاده از ترکیب PHP، Nginx و MySQL محیطی قابل اعتماد برای عملیات ربات ایجاد می‌کند.
