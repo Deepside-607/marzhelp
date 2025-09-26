@@ -9,7 +9,8 @@ Join us on [Telegram](https://t.me/marzhelp) for support and updates.
 To install **Marzhelp**, use the following command:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/ppouria/marzhelp/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/aliamg1356/marzhelp/main/install.sh)
+
 ```
 
 #### Important Note
