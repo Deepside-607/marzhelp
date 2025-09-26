@@ -53,6 +53,14 @@ Marzhelp بر روی پلتفرم زیر اجرا می‌شود:
 
 پس از نصب موفقیت‌آمیز، می‌توانید از طریق پورت 88 به پنل مدیریت دسترسی پیدا کنید و از ویژگی‌های مختلف ربات استفاده نمایید.
 
+
+https://github.com/aliamg1356/marzhelp/blob/main/screenshots/screenshot3.png
+
+https://github.com/aliamg1356/marzhelp/blob/main/screenshots/Screenshot.png
+
+https://github.com/aliamg1356/marzhelp/blob/main/screenshots/screenshot.jpg
+
+https://github.com/aliamg1356/marzhelp/blob/main/screenshots/screenshot2.jpg
 ## 🤝 مشارکت
 
 اگر علاقه‌مند به مشارکت در توسعه این پروژه هستید، خوشحال می‌شویم که همراه ما باشید.
