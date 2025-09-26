@@ -5,13 +5,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 date_default_timezone_set('Asia/Tehran');
 
-if (php_sapi_name() !== 'cli') {
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        header("Location: https://t.me/marzhelp");
-        exit;
-    }
-} 
-
 require_once 'app/classes/marzban.php';
 require_once 'app/functions/keyboards.php';
 require 'config.php';
@@ -2450,7 +2443,7 @@ function handleCallbackQuery($callback_query) {
                 'chat_id' => $chatId,
                 'text' => 'توجه! پیام بالا دارای محتوای اسپانسری است. دسترسی شما به بخش محدودیت‌ها پس از گذشت ۵ ثانیه امکان‌پذیر خواهد بود.'
             ]);
-            sleep(1);
+            sleep(0);
         } else {
             logDebug("Failed to fetch ad text from GitHub, skipping sponsor message");
         }
