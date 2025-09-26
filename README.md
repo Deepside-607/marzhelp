@@ -1,32 +1,64 @@
-# marzhelp
-A database management robot for Marzban
+بر اساس اطلاعات شما، یک ریدمی زیبا و ساختاریافته برای گیتهاب طراحی کردم:
 
+---
 
+# Marzhelp 🤖
 
-## Installation
+**یک ربات مدیریت پایگاه داده برای Marzban**
 
-To install **Marzhelp**, use the following command:
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+
+Marzhelp یک ابزار جامع برای مدیریت ادمین‌های Marzban است که با استفاده از ترکیب PHP، Nginx و MySQL محیطی قابل اعتماد برای عملیات ربات ایجاد می‌کند.
+
+## 🚀 نصب سریع
+
+برای نصب Marzhelp از دستور زیر استفاده کنید:
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/aliamg1356/marzhelp/main/install.sh)
-
 ```
 
-#### Important Note
-During the installation process, **port 80** will be temporarily opened to obtain an SSL certificate for the domain using Let's Encrypt. Once the SSL certificate is obtained and configured, **port 88** will be used permanently for serving this project. This ensures that all connections are secured using SSL.
+### 📝 نکته مهم
+در فرآیند نصب، پورت 80 به طور موقت باز می‌شود تا گواهی SSL برای دامنه از طریق Let's Encrypt دریافت شود. پس از دریافت و پیکربندی گواهی SSL، پورت 88 به طور دائمی برای سرویس‌دهی این پروژه استفاده خواهد شد. این امر تضمین می‌کند که تمام اتصالات با استفاده از SSL ایمن شده‌اند.
 
-## Description
+## ✨ ویژگی‌های کلیدی
 
-**Marzhelp** is a comprehensive tool for managing the administrators of [Marzban](https://github.com/Gozargah/Marzban). It streamlines administrative tasks, enabling you to set up secure configurations and efficiently manage users. This bot is installed with Nginx and occupies port 88. Marzhelp utilizes a combination of PHP, Nginx, and MySQL to establish a reliable environment for bot operations, helping you effortlessly manage your users.
+### 👥 مدیریت ادمین‌ها
+- ✅ ایجاد حساب‌های ادمین
+- ✅ ویرایش اطلاعات ادمین (نام کاربری، رمز عبور و غیره)
+- ✅ اعمال محدودیت‌های ادمین
+- ✅ غیرفعال کردن کاربران ادمین
 
-## Features
+### 🔧 مدیریت پروتکل‌ها و اینباندها
+- ✅ فعال و غیرفعال کردن پروتکل‌ها و اینباندها برای کاربران ادمین
 
-- ✔️ **Create Admin Accounts**
-- ✔️ **Modify Admin Information** (Username, Password, etc.)
-- ✔️ **Admin Restrictions**
-- ✔️ **Enable and Disable Protocols and Inbounds for Admin Users**
-- ✔️ **Manage Admin Users by Bot Manager and Admin**
-- ✔️ **View Admin Information by Admin and Bot Manager**
-- ✔️ **Deactivate Admin Users**
-- ✔️ **Save deleted volume by admin**
-- ✔️ **Admin restrictions**(creation, editing, rekove, reset usage, etc.)
+### 👑 مدیریت سطح دسترسی
+- ✅ مدیریت کاربران ادمین توسط مدیر ربات و ادمین
+- ✅ مشاهده اطلاعات ادمین توسط ادمین و مدیر ربات
+
+### 💾 قابلیت‌های پیشرفته
+- ✅ ذخیره حجم حذف شده توسط ادمین
+- ✅ محدودیت‌های ادمین (ایجاد، ویرایش، حذف، بازنشانی استفاده و غیره)
+
+## 🏗️ معماری فنی
+
+Marzhelp بر روی پلتفرم زیر اجرا می‌شود:
+- **PHP** - زبان برنامه‌نویسی اصلی
+- **Nginx** - وب سرور
+- **MySQL** - پایگاه داده
+- **Port 88** - پورت اصلی سرویس
+
+## 📖 راهنمای استفاده
+
+پس از نصب موفقیت‌آمیز، می‌توانید از طریق پورت 88 به پنل مدیریت دسترسی پیدا کنید و از ویژگی‌های مختلف ربات استفاده نمایید.
+
+## 🤝 مشارکت
+
+اگر علاقه‌مند به مشارکت در توسعه این پروژه هستید، خوشحال می‌شویم که همراه ما باشید.
+
+---
+
+**ساخته شده با ❤️ برای جامعه Marzban**
+
+برای اطلاعات بیشتر به [مستندات Marzban](https://github.com/gozargah/Marzban) مراجعه کنید.
