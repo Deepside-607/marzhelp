@@ -14,7 +14,7 @@ Marzhelp یک ابزار جامع برای مدیریت ادمین‌های Marz
 برای نصب Marzhelp از دستور زیر استفاده کنید:
 
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/aliamg1356/marzhelp/main/install.sh)
+bash <(curl -s https://raw.githubusercontent.com/Deepside-607/marzhelp/main/install.sh)
 ```
 
 ### 📝 نکته مهم
